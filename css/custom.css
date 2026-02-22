@@ -1,0 +1,121 @@
+/* ─── Scroll behavior ──────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Navbar: estado al hacer scroll ──────────────────────── */
+#navbar.nav-scrolled {
+  background-color: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.8);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Scrollbar personalizada ──────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* ─── Selección de texto ───────────────────────────────────── */
+::selection {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+/* ─── Skill badges ─────────────────────────────────────────── */
+.skill-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  background-color: rgba(49, 46, 129, 0.4);
+  color: #a5b4fc;
+  transition: border-color 0.2s;
+}
+
+.skill-highlight::after {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #818cf8;
+  flex-shrink: 0;
+}
+
+.skill-normal {
+  display: inline-flex;
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  background-color: rgba(15, 23, 42, 0.5);
+  color: #94a3b8;
+  transition: border-color 0.2s;
+}
+
+/* ─── Animaciones de entrada (Intersection Observer) ──────── */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Code blocks en deep dive ─────────────────────────────── */
+pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.72rem;
+  line-height: 1.75;
+  color: #94a3b8;
+}
+
+@media (min-width: 640px) {
+  pre code {
+    font-size: 0.8rem;
+  }
+}
+
+/* ─── Focus ring accesible ─────────────────────────────────── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ─── line-clamp fallback ──────────────────────────────────── */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── Prevenir overflow horizontal en mobile ───────────────── */
+body {
+  overflow-x: hidden;
+}
